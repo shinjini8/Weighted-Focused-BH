@@ -1,5 +1,21 @@
 # Weighted Focused BH
 Implementation of multiple testing procedures introduced in "Leveraging the group structure of hypotheses for more powerful multiple testing with FDR control for the filtered rejection set"
+## Dependencies
+
+R is required for the simulation studies and data analyses in Sections 4 and 5 and Wed Appendices G and H.
+Please install the following packages in R:
+ - `igraph`
+ - `multtest`
+ - `StructSSI`
+ 
+For data analysis, please install the following package in R:
+ - `phyloseq`
+ 
+For replicating the graphs in this paper, the following R packages are required:
+ - `ggplot2`
+ - `reshape2`
+ - `ggpubr`
+ - `stringr`
 
 ## External Code Dependencies
 
