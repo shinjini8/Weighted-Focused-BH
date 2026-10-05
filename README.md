@@ -5,6 +5,7 @@ Implementation of multiple testing procedures introduced in "Leveraging the grou
 R is required for the simulation studies and data analyses in Sections 4 and 5 and Wed Appendices G and H.
 Please install the following packages in R:
  - `igraph`
+ - `mvtnorm`
  - `multtest`
  - `StructSSI`
  

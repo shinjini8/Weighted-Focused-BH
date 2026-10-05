@@ -50,6 +50,7 @@ for(i in 1:length(case.list)){
     alt_indices <- suppressWarnings(altindices(adj_mat=adj_mat, leaf_alt_density=density))
     f = function() {
       lapply(1:n.rep, function(x){
+        # Parallelization is encouraged; this step can be parallelized.
         library(igraph)
         library(mvtnorm)
         library(multtest)
