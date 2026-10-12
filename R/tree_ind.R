@@ -8,7 +8,7 @@ library(dplyr)
 library(gtools)
 source("utils.R")
 source("WFBH_related_functions.R")
-load("widetree_adj_mat.RData")
+load("widetree_adj_mat.RData") # Load the adjacency matrix for the tree graph
 
 n.rep <- 200
 type.list <- c("simple", "fisher")
