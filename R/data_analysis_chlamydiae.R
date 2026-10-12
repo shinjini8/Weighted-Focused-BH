@@ -81,16 +81,10 @@ STARDAG.simple <- STAR.DAG(pvals=V(graph2)$pvalues, DAG=graph2,
                            alpha.list = alpha,prop.high = 0.01, prop.low=0.01,
                            fun.list = fun)
 
-nrej <- rbind(c(d.simple$No_rejection, wsbh.simple$No_rejection, sbh.simple$No_rejection, y.simple$No_rejection, 
-                bh.simple, STARDAG.simple$num_rej),
-              c(d.fisher$No_rejection, wsbh.fisher$No_rejection, sbh.fisher$No_rejection, y.fisher$No_rejection, 
-                bh.fisher, STARDAG.fisher$num_rej),
-              c(d.simes$No_rejection, wsbh.simes$No_rejection, sbh.simes$No_rejection, y.simes$No_rejection, 
-                bh.simes, STARDAG.simes$num_rej),
-              c(d.bonferroni$No_rejection, wsbh.bonferroni$No_rejection, sbh.bonferroni$No_rejection, y.bonferroni$No_rejection, 
-                bh.bonferroni, STARDAG.bonferroni$num_rej))
-colnames(nrej) <- c("Dagger", "WSBH", "SBH", "Yekutieli", "BH", "STAR")
-rownames(nrej) <- c("Unadjusted", "Fisher", "Simes", "Bonferroni")
+nrej <- c(d.simple$No_rejection, wsbh.simple$No_rejection, sbh.simple$No_rejection, y.simple$No_rejection, 
+          bh.simple, STARDAG.simple$num_rej)
+names(nrej) <- c("Dagger", "WSBH", "SBH", "Yekutieli", "BH", "STAR")
+
 nrej
 
 ## EXTRA GRAPHS ##
@@ -162,14 +156,6 @@ outernodes <- leafs[leafs %in% BHd]
 shapes[outernodes] <- "square"
 
 sum(is.na(colours2))
-labels <- c(expression('H'["1,1"]),
-            expression('H'["2,1"], 'H'["2,2"]),
-            expression('H'["3,1"], 'H'["3,2"],'H'["3,3"], 'H'["3,4"]),
-            expression('H'["4,1"], 'H'["4,2"],'H'["4,3"], 'H'["4,4"],'H'["4,5"], 'H'["4,6"],'H'["4,7"], 'H'["4,8"]),
-            expression('H'["5,1"], 'H'["5,2"],'H'["5,3"], 'H'["5,4"],'H'["5,5"], 'H'["5,6"],'H'["5,7"], 'H'["5,8"], 'H'["5,9"], 'H'["5,10"]),
-            expression('H'["6,1"], 'H'["6,2"],'H'["6,3"], 'H'["6,4"],'H'["6,5"], 'H'["6,6"],'H'["6,7"], 'H'["6,8"], 'H'["6,9"], 'H'["6,10"]),
-            expression('H'["7,1"], 'H'["7,2"],'H'["7,3"], 'H'["7,4"],'H'["7,5"], 'H'["7,6"]))
-names(labels) <- names(pvalues)
 
 graph <- set_vertex_attr(graph, "colorfilter", value = colours2[names(V(graph))])
 graph <- set_vertex_attr(graph, "shape", value = shapes[names(V(graph))])
